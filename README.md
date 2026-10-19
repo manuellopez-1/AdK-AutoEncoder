@@ -8,17 +8,19 @@ This project demonstrates the use of deep learning to analyze the large datasets
 
 ## Methodology
 
+
 Each structure is represented using the pairwise distances between all alpha-carbon (Cα) atoms. These distances are transformed into values between 0 and 1 using:
 
-\[
+$$
 K_{ij} =
 \begin{cases}
 e^{-d_{ij}/0.8}, & i \neq j \\
 0, & i = j
 \end{cases}
-\]
+$$
 
-where \(d_{ij}\) is the distance between alpha carbons \(i\) and \(j\).
+where $d_{ij}$ is the distance between alpha carbons $i$ and $j$.
+
 
 The resulting symmetric matrices are compressed using their upper-triangular elements and fed into a simple autoencoder composed primarily of dense layers. The network learns a two-dimensional latent representation of the molecular configurations, allowing the high-dimensional structural data to be visualized and analyzed.
 
